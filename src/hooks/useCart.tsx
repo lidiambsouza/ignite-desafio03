@@ -60,7 +60,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const addProduct = async (productId: number) => {
     try { 
-      console.log(productId)
+      
       const productInStock = stock.find(stock=>stock.id === productId);
       const productInCart = cart.find(cart=>cart.id === productId);
 
