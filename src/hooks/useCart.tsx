@@ -60,9 +60,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         return;
       }
 
-      if(productInStock && productInCart){
+      if(productInStock && productInCart){        
         const newAmount =  productInCart.amount+1                 
-        updateProductAmount({ productId , amount: newAmount})             
+        updateProductAmount({ productId , amount: newAmount})                   
       }
       
       if(!productInStock && !productInCart){
@@ -77,12 +77,8 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const removeProduct = (productId: number) => {
     try {
       const productInCart = cart.find(cart=>cart.id === productId);
-      const productForId= api.get(`products/${productId}`)
-          .then(response => { 
-            return response.data
-          })
-
-      if(productInCart && productForId){
+      
+      if(productInCart){
         const cartNew = cart.filter((product)=>{
           return product.id !== productId
         })
