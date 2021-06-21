@@ -32,7 +32,7 @@ const Home = (): JSX.Element => {
   
   useEffect(() => {
     async function loadProducts() {
-      await api.get('products')
+      await api.get(`products`)
       .then(response => {
         const productsFormatted = response.data.map((product:any) =>{                     
           return {
